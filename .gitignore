@@ -1,26 +1,16 @@
-syntax: glob
 *.pyc
 *.pyo
 *~
 *.swp
 *.bak
-*.orig
-*.rej
 *.pid
 *.log
-.svn
-.git
 *.egg-info
 .DS_Store
 var/
 build/
 dist/
 .tox/
-site-static/
-*/static/assets/
-assets/
-media/
 .idea/
 .vagrant/
-backups/
-.env*
+env
