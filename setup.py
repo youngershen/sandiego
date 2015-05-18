@@ -28,7 +28,7 @@ setup(name='sandiego',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
       zip_safe=True,
-      install_requires=['sqlalchemy', 'jinja2'],
+      install_requires=['jinja2'],
       entry_points="""
       # -*- Entry points: -*-
       """,
