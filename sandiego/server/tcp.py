@@ -4,5 +4,9 @@
 # EMAIL        : younger.x.shen@gmail.com
 
 
-class TCPServer():
+class BaseTcpServer():
+    pass
+
+
+class TcpServer(BaseTcpServer):
     pass
