@@ -2,11 +2,6 @@
 # PROJECT_NAME : sandiego
 # AUTHOR       : younger shen
 # EMAIL        : younger.x.shen@gmail.com
+import logging
 
-
-class BaseTcpServer():
-    pass
-
-
-class TcpServer(BaseTcpServer):
-    pass
+logger = logging.getLogger(__file__)
