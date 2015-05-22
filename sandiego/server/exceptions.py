@@ -15,8 +15,8 @@ class BaseHttpException(Exception):
         if self.message:
             message = get_http_status_message(self.code) + "\r\n" + self.message
         else:
-            message = get_http_status_message(self.code
-                                              )
+            message = get_http_status_message(self.code)
+
         return get_http_status_message(message)
 
 
