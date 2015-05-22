@@ -4,6 +4,7 @@
 # EMAIL        : younger.x.shen@gmail.com
 import socket
 import threading
+from sandiego.server.exceptions import ConnectionClosedException
 
 
 class TCPBASEThread(threading.Thread):
@@ -19,8 +20,13 @@ class TCPThread(TCPBASEThread):
         self.address = address
 
     def run(self):
+        print(self)
         while True:
-            self.handler(self.connection)
+            try:
+                self.handler(self.connection)
+            except ConnectionClosedException:
+                import sys
+                sys.exit(0)
 
 
 class TCPBASEServer:
@@ -47,15 +53,14 @@ class TCPBASEServer:
         processing = TCPThread(self.handler, connection, address)
         processing.start()
 
-    @staticmethod
-    def handler(connection):
+    def handler(self, connection):
         raise NotImplementedError()
 
 
 class TCPServer(TCPBASEServer):
-    @staticmethod
-    def handler(connection):
+    def handler(self, connection):
         data = connection.recv(1024)
+        print(data)
         connection.sendall(data)
 
 

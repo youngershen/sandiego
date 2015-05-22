@@ -11,6 +11,17 @@ inet = (ADDRESS, PORT)
 BUF = 1024
 
 
+def index(request):
+    print('index')
+
+
+def test(request):
+    print('test')
+
+urls = [r'/', index]
+urls += [r'/test', test]
+
+
 def test_simple_tcpserver():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
     client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

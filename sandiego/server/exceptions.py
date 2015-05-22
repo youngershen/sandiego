@@ -2,7 +2,8 @@
 # PROJECT_NAME : sandiego
 # AUTHOR       : younger shen
 # EMAIL        : younger.x.shen@gmail.com
-from sandiego.http.messages import get_http_status_message
+from sandiego.server.messages import get_http_status_message
+from sandiego.server.messages import CONNECTION_CLOSED_EXCEPTION
 
 
 class BaseHttpException(Exception):
@@ -22,3 +23,10 @@ class BaseHttpException(Exception):
 
 class HttpException(BaseHttpException):
     pass
+
+
+class ConnectionClosedException(Exception):
+
+    def __str__(self):
+        return CONNECTION_CLOSED_EXCEPTION
+

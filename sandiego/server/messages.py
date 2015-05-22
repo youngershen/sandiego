@@ -99,6 +99,14 @@ HTTPMESSAGES = {
     505: HTTPMESSAGE_505
 }
 
+HTTPHEADER_100 = b"HTTP/1.1 200 Ok\r\n"
+HTTPHEADER_101 = b"HTTP/1.1 200 Switching Protocols\r\n"
+
 
 def get_http_status_message(code):
     return HTTPMESSAGES.get(code, None)
+
+
+# exceptions
+
+CONNECTION_CLOSED_EXCEPTION = _("remote connection closed")
