@@ -46,7 +46,7 @@ class HTTPBASEServer(TCPBASEServer):
 class HTTPServer(HTTPBASEServer):
     def handler(self, connection):
 
-        recv = connection.recv(4096)
+        # recv = connection.recv(4096)
         headers = {'Connection': 'close', 'Content-Length': '12', 'Content-Type': 'text/html; charset=utf-8',
                    'Server': 'Sandiego/test'}
 
