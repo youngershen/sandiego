@@ -24,8 +24,10 @@ class TCPThread(TCPBASEThread):
             try:
                 self.handler(self.connection)
             except ConnectionClosedException:
+                print('connection closed')
                 import sys
                 sys.exit(0)
+
 
 
 class TCPBASEServer:

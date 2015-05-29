@@ -6,7 +6,7 @@ import socket
 from sandiego.server.tcpserver import TCPBASEServer
 from sandiego.server.exceptions import ConnectionClosedException
 RECV_BUF = 1024
-HTTPHEADER = b"HTTP/1.1 200 Not Found\r\n"
+HTTPHEADER = b"HTTP/1.1 200 Ok \r\n"
 
 
 class HTTPBASEServer(TCPBASEServer):
@@ -45,14 +45,16 @@ class HTTPBASEServer(TCPBASEServer):
 
 class HTTPServer(HTTPBASEServer):
     def handler(self, connection):
+        recv = connection.recv(1024)
+        print(recv)
 
-        recv = connection.recv(4096)
-        print("test")
         headers = {'Connection': 'close', 'Content-Length': '12', 'Content-Type': 'text/html; charset=utf-8',
-                   'Server': 'Sandiego/test'}
+        body = 'best server'
+        body_length = len(body)
 
         header = self.build_header(data=headers)
-        response = self.build_response(header, 'best server')
+        response = self.build_response(header, 'youngers server')
+
         try:
             print('send')
             connection.send(response)
