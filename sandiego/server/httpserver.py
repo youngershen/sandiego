@@ -46,13 +46,16 @@ class HTTPBASEServer(TCPBASEServer):
 class HTTPServer(HTTPBASEServer):
     def handler(self, connection):
 
-        # recv = connection.recv(4096)
+        recv = connection.recv(4096)
+        print("test")
         headers = {'Connection': 'close', 'Content-Length': '12', 'Content-Type': 'text/html; charset=utf-8',
                    'Server': 'Sandiego/test'}
 
         header = self.build_header(data=headers)
         response = self.build_response(header, 'best server')
         try:
-            connection.sendall(response)
+            print('send')
+            connection.send(response)
+            # connection.sendall(response)
         except socket.error:
             raise ConnectionClosedException()

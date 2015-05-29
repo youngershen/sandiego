@@ -20,7 +20,6 @@ class TCPThread(TCPBASEThread):
         self.address = address
 
     def run(self):
-        print(self)
         while True:
             try:
                 self.handler(self.connection)
