@@ -56,8 +56,7 @@ class HTTPServer(HTTPBASEServer):
         response = self.build_response(header, 'youngers server')
 
         try:
-            print('send')
             connection.send(response)
-            # connection.sendall(response)
+            connection.sendall(response)
         except socket.error:
             raise ConnectionClosedException()
