@@ -2,6 +2,7 @@
 # PROJECT_NAME : sandiego
 # AUTHOR       : younger shen
 # EMAIL        : younger.x.shen@gmail.com
+import sys
 import socket
 import threading
 from sandiego.server.exceptions import ConnectionClosedException
@@ -25,9 +26,7 @@ class TCPThread(TCPBASEThread):
                 self.handler(self.connection)
             except ConnectionClosedException:
                 print('connection closed')
-                import sys
                 sys.exit(0)
-
 
 
 class TCPBASEServer:
